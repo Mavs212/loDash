@@ -3,7 +3,7 @@
 	var myObj = {
 		name: "dave",
 		location: "dallas",
-		status: "human",
+		age: 30,
 
 	}	
 
