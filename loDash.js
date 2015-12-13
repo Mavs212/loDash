@@ -94,7 +94,7 @@
 
 
 	function contains(collection, target) {	//contains is similar to some, but it uses reduce to see if an element is present.
-	  return reduce(collection, function (accumulator, element) {   // It also uses a target value instead of a predicate function
+	  return reduce(collection, function (accumulator, element) {   // It also uses a target value instead of a predicate function.
 	    if (accumulator) {		//initial is set to false, so therefore accumulator will equal false unless							
 	      return true;		// element === target, aka the current index equals the value of the target
 	    }				//parameter, otherwise, the function will return true to the end.
@@ -105,7 +105,7 @@
 
 	
 
-	function add(a,b) {  //this is an example of a callback function parameter that can be used with the functionk reduce
+	function add(a,b) {  //this is an example of a callback function parameter that can be used with the function reduce
 		return a + b;
 	}
 
