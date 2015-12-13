@@ -27,14 +27,14 @@
 	//forEach, which is the heart of the loDash library
 	function forEach(collection, callback) {
 		if (Array.isArray(collection)) {
-			for (var i = 0; i < collection.length; i++) {	//this if statement checks if the collection parameter is an array, if it is then 
-				callback(collection[i]);					//the loop will implement the callback function
-			}												// through every index  of the array, if the collection parameter is an object 
-		}													//the else statement runs below
+			for (var i = 0; i < collection.length; i++) {//This if statement checks if the collection parameter is an array.
+				callback(collection[i]); // If it is an array is then the loop will implement the callback function
+			}				 // through every index  of the array.  If the collection is an object 
+		}				  	 //the else statement runs below
 		else {
-			for (var key in collection){ 					//Similar to above, except will run if the collection parameter is an object  
-				if(collection.hasOwnProperty(key))  {		//the loop checks to see if the collection has a property, which would only occur if it is an object and if so
-					callback(collection[key])			    //the callback function is executed on the property
+			for (var key in collection){     //Similar to above, except will run if the collection parameter is an object  
+				if(collection.hasOwnProperty(key))  {
+					callback(collection[key])			   
 				}
 			}
 		}
@@ -43,23 +43,23 @@
 	function map(collection, callback) {
 	 	var result = [];
 	 	forEach(collection, function (element) {  //map uses an anonymous callback function is used in the forEach declaration 
-	    	result.push(callback(element));});    //to push the results of callback for each index in the collection array to an empty array called result
-	  return result;
+	    	result.push(callback(element));});    //to push the results of callback for each index in the collection
+	  return result;			       //array to an empty array called result
 	}
 
 
 	function filter(collection, predicate) {
-	  var result = [];							//filter is similar to map, but instead the callback function parameter is now called predicate
-	  forEach(collection, function (element) {   //and the predicate function is now used to determine whether resuts are pushed to the result array.
-	    if (predicate(element))
+	  var result = [];			     //filter is similar to map, but instead the callback function parameter 
+	  forEach(collection, function (element) {   //is now called predicateand the predicate function is now used to 
+	    if (predicate(element))		     //determine whether resuts are pushed to the result array.
 	      result.push(element);
 	  });
 	  return result;
 	}
 	
-	function some(collection, predicate) {   //some is simiar to filter but instead of returning elements that passed the predicate test
-	var bool;								 //this functionr returns true if there are some elements that pass the predicate function test.
-		forEach(collection, function(element) {  //otherwise it returns false.
+	function some(collection, predicate) {   //some is simiar to filter but instead of returning elements that passed the 
+	var bool;			        //predicate test this functionr returns true if there are some elements 
+		forEach(collection, function(element) {  //that pass the predicate function test. Otherwise it returns false.
 			if (predicate(element)) {
 				bool = true;
 			}
@@ -72,8 +72,8 @@
 
 
 
-	function every(collection, predicate) {   //every is similar to some, except it only returns true if every element in the collection
-	  var result = true;					  //passes the predicate test
+	function every(collection, predicate) {   //every is similar to some, except it only 
+	  var result = true;			 //returns true if every element in the collection passes the predicate test.
 	  forEach(collection, function (element) {
 	    if (!predicate(element)) {
 	      result = false;
@@ -82,10 +82,10 @@
 	  return result;
 	} 
 
-	function reduce(collection, callback, initial) {   //reduce is a function that takes an initial value (if undefined it is the first in the collection)
-	  var accumulator = initial;					   //and adds the result of a callback function on each iorrectlytem in a the collection.
-	  forEach(collection, function (element) {		  //the callback function must have two parameters in order to work c
-	    if (accumulator === undefined){
+	function reduce(collection, callback, initial) {   //reduce is a function that takes an initial value 
+	  var accumulator = initial;		          //(if undefined it is the first in the collection)and adds
+	  forEach(collection, function (element) {	// the result of a callback function on each iorrectlytem in a the collection.
+	    if (accumulator === undefined){		//The callback function must have two parameters in order to work properly
 	    	accumulator = element;}
 	    accumulator = callback(accumulator, element);
 	  });
@@ -93,15 +93,15 @@
 	}
 
 
-	function contains(collection, target) {						//contains is similar to some, but it uses reduce to see if an element is present.
-	  return reduce(collection, function (accumulator, element) {     // it also uses a target value instead of a predicate function
-	    if (accumulator) {									
-	      return true;		
-	    }
+	function contains(collection, target) {	//contains is similar to some, but it uses reduce to see if an element is present.
+	  return reduce(collection, function (accumulator, element) {   // It also uses a target value instead of a predicate function
+	    if (accumulator) {		//initial is set to false, so therefore accumulator will equal false unless							
+	      return true;		// element === target, aka the current index equals the value of the target
+	    }				//parameter, otherwise, the function will return true to the end.
 	    return element === target;
-	  }, false);													//initial is set to false, so therefore accumulator will equal false unless
-	}																// element === target, aka the current index equals the value of the target
-																	//parameter, otherwise, the function will return true to the end
+	  }, false);												
+	}															
+																	
 
 	
 
