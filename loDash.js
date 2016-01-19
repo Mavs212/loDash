@@ -14,15 +14,6 @@
 	}
 
 
-	//acessing index of array using bracket notation
-	//print(myArr[1]);    
-
-	//accessing property of object using dot notation
-	//print(myObj.location);
-
-	//accessing prperty of object using bracket notation
-	//print(myObj['location']);
-
 
 	//forEach, which is the heart of the loDash library
 	function forEach(collection, callback) {
